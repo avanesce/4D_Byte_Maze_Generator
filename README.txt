@@ -3,7 +3,7 @@
 The project creates a theoretical 4D Maze (doesn't actually draw one) which is output as a byte file. 
 Each file contains characters equal to n^4, where is equivalent to the length of each side of the maze. This also results in the maze being a cube, which is then represented in another dimension (such as time). 
 
-Furthermore, the maze meets two additional conditions:
+Furthermore, the maze meets several additional conditions:
 • The maze is different every time, so a larger maze is not simply an expansion of a smaller one. A seed was not used but a time seed can simply solve this condition to be truly random.
 • Each cell must be used, no cell can be completely blocked off (see an example where a byte is 11111111).
 • A loop cannot exist in the maze, requiring the usage of disjoint sets to create a maze that can fully be represented as a tree. Each cell in the maze will be represented by a node which is capable of tracking it's own parent cell. At the start, each cell is it's own parent. Any cell merged into the forming maze will adopted a new parent (the parent node, aka the root of the entire tree). If the expanding maze attempts to expand to a cell which already shares a parent, then it will not destroy the dividing wall, thus preventing a loop from forming within the maze. 
